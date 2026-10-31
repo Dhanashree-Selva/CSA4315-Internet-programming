@@ -1,1 +1,19 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio in HTML</title>
+</head>
+<body>
+    <h1>HTML Audio Example</h1>
+
+    <h3>Play Audio</h3>
+
+    <audio controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        Your browser does not support audio.
+    </audio>
+
+</body>
+</html>
+
