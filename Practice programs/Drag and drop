@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drag and Drop</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        #drag {
+            width: 120px;
+            padding: 20px;
+            background-color: orange;
+            margin: 30px auto;
+            cursor: grab;
+        }
+
+        #drop {
+            width: 250px;
+            height: 150px;
+            border: 3px dashed blue;
+            margin: auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>HTML Drag and Drop</h1>
+
+    <div id="drag" draggable="true"
+         ondragstart="dragStart(event)">
+        Drag Me
+    </div>
+
+    <div id="drop"
+         ondragover="allowDrop(event)"
+         ondrop="dropItem(event)">
+        Drop Here
+    </div>
+
+    <script>
+        function dragStart(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function dropItem(event) {
+            event.preventDefault();
+
+            let id = event.dataTransfer.getData("text");
+
+            event.target.appendChild(
+                document.getElementById(id)
+            );
+        }
+    </script>
+
+</body>
+</html>
